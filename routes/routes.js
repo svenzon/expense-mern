@@ -2,13 +2,13 @@ var express = require("express");
 var router = express.Router();
 var bodyParser = require("body-parser");
 var Expense = require("../models/Expense");
+var expense = new Expense();
 
 router.get("/", function(req,res) {
     res.render("index");
 });
 
 router.route("/insert").post(function(req, res) {
-    var expense = new Expense();
     expense.description = req.body.desc;
     expense.amount = req.body.amount;
     expense.month = req.body.month;
@@ -65,6 +65,6 @@ router.get("/getAll", function(req, res) {
             res.json(expenses);
         });
     }
-})
+});
 
 module.exports = router;
