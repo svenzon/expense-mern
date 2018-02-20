@@ -13,12 +13,12 @@ router.route("/insert").post(function(req, res) {
     expense.amount = req.body.amount;
     expense.month = req.body.month;
     expense.year = req.body.year;
-});
 
-expense.save(function(err) {
-    if (err)
-     res.send(err);
-    res.send("Expense successfully added!");
+    expense.save(function(err) {
+        if (err)
+        res.send(err);
+        res.send("Expense successfully added!");
+    });
 });
 
 router.route("/update").post(function(req, res) {
